@@ -1,11 +1,36 @@
-# collection_template
-You can build a new repository for an Ansible Collection using this template by following [Creating a repository from a template](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template). This README.md contains recommended headings for your collection README.md, with comments describing what each section should contain. Once you have created your collection repository, delete this paragraph and the title above it from your README.md.
+# Deploying VMs on OpenShift Virtualization with Ansible
+This repository contains Ansible playbooks and roles for deploying virtual machines on OpenShift Virtualization.
 
 # Foo Collection for Ansible
 <!-- Add CI and code coverage badges here. Samples included below. -->
 [![CI](https://github.com/ansible-collections/REPONAMEHERE/workflows/CI/badge.svg?event=push)](https://github.com/ansible-collections/REPONAMEHERE/actions) [![Codecov](https://img.shields.io/codecov/c/github/ansible-collections/REPONAMEHERE)](https://codecov.io/gh/ansible-collections/REPONAMEHERE)
 
-<!-- Describe the collection and why a user would want to use it. What does the collection do? -->
+## Ansible Collection for OpenShift Virtualization
+
+The Ansible Collection for OpenShift Virtualization enables users to easily provision, configure, and manage virtual machines on OpenShift using Ansible playbooks. 
+
+OpenShift Virtualization allows running and managing virtual machine workloads alongside container workloads on OpenShift. However, creating and configuring VMs on OpenShift Virtualization involves several manual steps using the web console or CLI.
+
+This Ansible collection automates the process of deploying VMs on OpenShift Virtualization, making it faster, more repeatable, and less error-prone. With a simple Ansible playbook, you can:
+
+- Create VMs with specified resources (CPU, memory, disks)
+- Configure VM network settings 
+- Provision VMs from templates, images, or PVCs
+- Initialize VMs using cloud-init 
+- Manage VM state (start, stop, restart)
+- Update and reconfigure existing VMs
+- Clean up and delete VMs
+
+The collection includes Ansible roles, modules, and plugins that abstract the complexity of the underlying OpenShift Virtualization APIs and provide a simple, declarative way to manage VMs on OpenShift.
+
+Key features:
+- Supports all OpenShift Virtualization API objects and operations
+- Includes Ansible roles for common VM provisioning and management tasks 
+- Provides Ansible modules for managing VMs, templates, disks, and networks
+- Integrates with Ansible Tower and AWX for CI/CD and infrastructure-as-code 
+- Supports Jinja templating and variable substitution for dynamic configuration
+
+If you are using OpenShift Virtualization and want to streamline the management of your VM workloads using Ansible, this collection is for you. It enables infrastructure-as-code, GitOps, and shift-left practices for VMs on OpenShift.
 
 ## Our mission
 
@@ -93,31 +118,31 @@ Every voice is important. If you have something on your mind, create an issue or
 
 ## Using this collection
 
-<!--Include some quick examples that cover the most common use cases for your collection content. It can include the following examples of installation and upgrade (change NAMESPACE.COLLECTION_NAME correspondingly):-->
+<!--Include some quick examples that cover the most common use cases for your collection content. It can include the following examples of installation and upgrade (change tosin2013.openshift-virt-ansible correspondingly):-->
 
 ### Installing the Collection from Ansible Galaxy
 
 Before using this collection, you need to install it with the Ansible Galaxy command-line tool:
 ```bash
-ansible-galaxy collection install NAMESPACE.COLLECTION_NAME
+ansible-galaxy collection install tosin2013.openshift-virt-ansible
 ```
 
 You can also include it in a `requirements.yml` file and install it with `ansible-galaxy collection install -r requirements.yml`, using the format:
 ```yaml
 ---
 collections:
-  - name: NAMESPACE.COLLECTION_NAME
+  - name: tosin2013.openshift-virt-ansible
 ```
 
 Note that if you install the collection from Ansible Galaxy, it will not be upgraded automatically when you upgrade the `ansible` package. To upgrade the collection to the latest available version, run the following command:
 ```bash
-ansible-galaxy collection install NAMESPACE.COLLECTION_NAME --upgrade
+ansible-galaxy collection install tosin2013.openshift-virt-ansible --upgrade
 ```
 
 You can also install a specific version of the collection, for example, if you need to downgrade when something is broken in the latest version (please report an issue in this repository). Use the following syntax to install version `0.1.0`:
 
 ```bash
-ansible-galaxy collection install NAMESPACE.COLLECTION_NAME:==0.1.0
+ansible-galaxy collection install tosin2013.openshift-virt-ansible:==0.1.0
 ```
 
 See [using Ansible collections](https://docs.ansible.com/ansible/devel/user_guide/collections_using.html) for more details.
