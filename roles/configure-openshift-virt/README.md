@@ -1,4 +1,4 @@
-Configure OpenSjhift Virtulization
+Configure OpenShift Virtulization
 =========
 
 A brief description of the role goes here.
