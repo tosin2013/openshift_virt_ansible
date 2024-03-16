@@ -1,0 +1,41 @@
+- name: Configure openshift-storage namespace
+  k8s:
+    definition: "{{ lookup('template', 'openshift-storage-namespace.yml') }}"
+    state: present
+  tags: configure_odf
+
+- name: Configure openshift-storage OperatorGroup
+  k8s:
+    definition: "{{ lookup('template', 'openshift-storage-og.yml') }}"
+    state: present
+  tags: configure_odf
+
+- name: Configure openshift-storage subscription
+  k8s:
+    definition: "{{ lookup('template', 'odf-operator.yml-subscription.yml.j2') }}"
+    state: present
+  tags: configure_odf
+
+- name: Configure openshift-storage ODF console
+  k8s:
+    definition: "{{ lookup('template', 'odf-console.yml') }}"
+    state: present
+  tags: configure_odf
+
+- name: Configure openshift storage CR
+  k8s:
+    definition: "{{ lookup('template', 'enable-odf-console-plugin-cr.yml') }}"
+    state: present
+  tags: configure_odf
+
+- name: Configure openshift storage crb
+  k8s:
+    definition: "{{ lookup('template', 'odf-storagecluster-crb.yml.j2') }}"
+    state: present
+  tags: configure_odf
+
+- name: Configure openshift storage job
+  k8s:
+    definition: "{{ lookup('template', 'odf-storagecluster-job.yml.j2') }}"
+    state: present
+  tags: configure_odf

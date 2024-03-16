@@ -1,2 +1,5 @@
 ---
 # tasks file for configure-openshift-virt
+- name: Install and configure OpenShift Data Foundation
+  ansible.builtin.include_tasks: configure-odf.yaml
+  tags: configure_odf
