@@ -1,0 +1,9 @@
+- name: Log in (obtain access token)
+  community.kubernetes.k8s_auth:
+    username: "{{ openshift_username }}"
+    password: "{{ openshift_password }}"
+  register: k8s_auth_results 
+
+- name: Set k8s_auth_results as a fact
+  set_fact:
+    global_k8s_auth_results: "{{ k8s_auth_results }}"
