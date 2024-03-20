@@ -1,8 +1,8 @@
 ---
 # tasks file for configure-openshift-virt
-- name: Login to OpenShift
-  ansible.builtin.include_tasks: login-ocp.yml
-  tags: login_ocp
+- name: Validate User Login
+  ansible.builtin.include_tasks: validate-login.yml
+  tags: always
 - name: Install and configure OpenShift Data Foundation
   ansible.builtin.include_tasks: configure-odf.yml
   tags: configure_odf
