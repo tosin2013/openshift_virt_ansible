@@ -1,0 +1,13 @@
+- name: Attempt to get current user context
+  kubernetes.core.k8s_info:
+    api_version: v1
+    kind: ConfigMap 
+    name: kubeconfig
+    namespace: kube-system  
+  register: kubeconfig_info
+  ignore_errors: true
+
+- name: Fail if not logged in
+  fail:
+    msg: "You are not logged into OpenShift. Use the 'oc login' command. See OpenShift documentation for details (https://docs.openshift.com/)"
+  when: kubeconfig_info is failed 
